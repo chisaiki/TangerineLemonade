@@ -1,3 +1,6 @@
+#ifndef GAME_STRUCT
+#define GAME_STRUCT
+
 #include "libraries.h"
 
 struct GameState {
@@ -11,3 +14,5 @@ struct GameState {
     std::mt19937 rng{std::random_device{}()};   // one RNG, created once
     std::vector<std::string> log;               // messages for the UI to show
 };
+
+#endif

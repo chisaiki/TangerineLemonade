@@ -6,6 +6,7 @@ Random customers spawn
 - Big Tipper
 - Karen
 - Normal
+- Charity
 
 Lemons spoil over night?
 Sugar needs to be bought
