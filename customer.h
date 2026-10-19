@@ -3,10 +3,11 @@
 
 #include "libraries.h"
 #include "gameStruct.h"
+#include "customerArchetype.h"
 
 struct Customer {
     const CustomerArchetype* archetype;
-    int wants;
+    int order_amount;
     double patience;
 };
 
