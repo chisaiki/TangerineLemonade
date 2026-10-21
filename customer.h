@@ -1,7 +1,7 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-#include "libraries.h"
+#include <string>
 #include "gameStruct.h"
 #include "customerArchetype.h"
 

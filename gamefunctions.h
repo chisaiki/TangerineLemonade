@@ -1,7 +1,8 @@
-#ifndef GAME_FUNCS
-#define GAME_FUNCS
+#ifndef GAME_FUNCS_H
+#define GAME_FUNCS_H
 
-#include "libraries.h"
+#include <iostream>
+#include <random> // Used for random number generation (mt19937 and random_device)
 #include "gameStruct.h"
 
 enum class Action { Display = 1, Make, Sell, Quit };
