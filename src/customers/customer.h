@@ -6,7 +6,7 @@
 #include "customerArchetype.h"
 
 struct Customer {
-    const CustomerArchetype* archetype;
+    const CustomerArchetype* archetype; /*Just a vector*/
     int order_amount;
     double patience;
 };

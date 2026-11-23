@@ -52,9 +52,9 @@ void generateCustomers(int& stock, double& money){
 
 void displayInfo(const GameState& game_block){
                 std::cout << "~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-                std::cout << "Lemons: " << game_block.lemons << std::endl;
-                std::cout << "Sugar: " << game_block.sugar << std::endl;
-                std::cout << "Stock: " << game_block.stock << std::endl;
+                std::cout << "Lemons: " << game_block.inventory.lemons << std::endl;
+                std::cout << "Sugar: " << game_block.inventory.sugar << std::endl;
+                std::cout << "Stock: " << game_block.inventory.stock << std::endl;
                 std::cout << "Money: $" << game_block.money << std::endl;
                 std::cout << "~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 }
@@ -65,10 +65,10 @@ void applyAction(GameState& s, Action a){
         displayInfo(s);
     }
     else if (a == Action::Make){
-        makeLemonade(s.lemons, s.sugar, s.stock);
+        makeLemonade(s.inventory.lemons, s.inventory.sugar, s.inventory.stock);
     }
     else if (a == Action::Sell){
-        generateCustomers(s.stock, s.money);
+        generateCustomers(s.inventory.stock, s.money);
     }
 }
 
