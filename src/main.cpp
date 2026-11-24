@@ -2,6 +2,7 @@
 
 
 int main(){
+    
     GameState newcharacter;
     Action action;
 

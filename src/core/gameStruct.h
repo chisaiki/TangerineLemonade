@@ -1,7 +1,6 @@
 #ifndef GAME_STRUCT_H
 #define GAME_STRUCT_H
 
-#include <string> 
 #include <vector>
 #include <random> // Used for random number generation (mt19937 and random_device)
 #include <deque>

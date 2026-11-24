@@ -2,8 +2,8 @@
 #define GAME_FUNCS_H
 
 #include <iostream>
-#include <random> // Used for random number generation (mt19937 and random_device)
-#include "gameStruct.h"
+
+struct GameState;
 
 enum class Action { Display = 1, Make, Sell, Quit };
 
@@ -22,4 +22,3 @@ void applyAction(GameState& s, Action a);
 
 
 #endif
-

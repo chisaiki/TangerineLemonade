@@ -1,4 +1,8 @@
 #include "gamefunctions.h"
+#include "gameStruct.h"
+
+#include <random> // Used for random number generation (mt19937 and random_device)
+
 
 void startInfo(){
     std::cout << "--- Welcome To L'Quackies Lemonade! ---" << std::endl;
