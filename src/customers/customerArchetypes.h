@@ -6,10 +6,13 @@
 
 struct CustomerArchetype {
     std::string name;
+    double spawn_weight;      // relative chance of this type showing up (ratios, not %)
     double tip_multiplier;
-    double patience_min, patience_max;
+    double patience_min;
+    double patience_max;
     int    max_cups;
     std::vector<std::string> greetings;
+    std::vector<std::string> tip_lines;
     std::vector<std::string> angry_lines;
 };
 

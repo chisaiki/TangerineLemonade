@@ -2,7 +2,7 @@
 #define CUSTOMER_H
 
 #include <string>
-#include "customerArchetype.h"
+#include "customerArchetypes.h"
 
 struct GameState;   // "a struct with this name exists; details later"
 
@@ -15,8 +15,8 @@ struct Customer {
 struct Sale { 
     double money; 
     std::string message; 
+    
 };
-
 
 
 // Creates a customer with a weighted random type (factory function)
@@ -24,7 +24,7 @@ struct Sale {
 Customer makeCustomer(GameState& s);
 
 // Serves a customer, updates the game state, and returns the sale result
-Sale serveCustomer(const Customer& c, GameState& s);
+//Sale serveCustomer(GameState& s);
 
 
 #endif 

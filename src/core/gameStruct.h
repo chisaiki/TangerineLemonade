@@ -4,7 +4,7 @@
 #include <vector>
 #include <random> // Used for random number generation (mt19937 and random_device)
 #include <deque>
-#include "customer.h"
+#include "../customers/customer.h"
 
 struct Inventory {
     int lemons = 10;
@@ -14,9 +14,10 @@ struct Inventory {
 
 struct GameState {
     Inventory inventory;
-    std::deque<Customer> customer_arrivals;
+    std::deque<Customer> customer_arrivals = {};
     double money = 0;
     int day = 1;
+    bool end_of_day = false; 
 
 
     std::mt19937 rng{std::random_device{}()};   // one RNG, created once

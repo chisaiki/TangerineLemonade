@@ -1,4 +1,6 @@
-#include "gamefunctions.h"
+#include "core/gamefunctions.h"
+#include "core/gameStruct.h"
+#include "customers/customer.h"
 
 
 int main(){
@@ -17,7 +19,10 @@ int main(){
                 
             // make lemonade 
             case Action::Make:{
-               applyAction(newcharacter, Action::Make);
+                applyAction(newcharacter, Action::Make);
+                
+                // only adding it here so the game has an ending
+                makeCustomer(newcharacter);
                 break;
             }
             
@@ -29,10 +34,31 @@ int main(){
 
             // sell lemonade
             case Action::Sell:{
-                applyAction(newcharacter, Action::Sell);
+                
+                if(newcharacter.customer_arrivals.empty()){
+                    std::cout << "There's no customers to sell to! (-_-;)" << std::endl;
+                }
+                
+                else{
+                    applyAction(newcharacter, Action::Sell);
+                }
+                
                 break;
             }
             
+        }
+
+        if (!newcharacter.customer_arrivals.empty()){
+            
+            std::cout << "[ ";
+            for (int i = 0; i < newcharacter.customer_arrivals.size(); i++){
+                std::cout << newcharacter.customer_arrivals[i].archetype->name << " | ";
+            }
+
+            std::cout << " ]" << std::endl;
+        }
+        else{
+            std::cout << "[             ...(@)...             ]" << std::endl;
         }
 
     }

@@ -1,5 +1,6 @@
 #include "gamefunctions.h"
 #include "gameStruct.h"
+#include "../customers/customer.h"
 
 #include <random> // Used for random number generation (mt19937 and random_device)
 
@@ -13,7 +14,7 @@ void startInfo(){
 bool makeLemonade(int& total_lemons, int& total_sugar, int& stock){
 
     if (total_lemons < 1 || total_sugar < 1){
-        std::cout << "Not enough inventory!";        
+        std::cout << "Not enough inventory!" << std::endl;        
         return false;
     }
 
@@ -26,33 +27,33 @@ bool makeLemonade(int& total_lemons, int& total_sugar, int& stock){
 
 }
 
-void generateCustomers(int& stock, double& money){
+/*Requires gamestate struct to exist*/
+void sellLemonade(GameState& s){
 
-    if (stock <= 0){
+    if (s.inventory.stock <= 0){
         std::cout << "Out of lemonade!" << std::endl;
         return;
     }
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+    std::cout << "Sold to " << s.customer_arrivals.back().archetype->name << "!"<< std::endl;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+
+    // so adding price up at a constant rate is not including the tip amount
+    // i need make a seperate function to calculate tip and final profit made
+    //serveCustomer(s);
     
-    // Set the range from 1 to 10 (inclusive)
-    std::uniform_int_distribution<> distr(1, stock);
+    s.inventory.stock--;
+    s.money += 2.75;
+    s.money += s.customer_arrivals.front().archetype->tip_multiplier;
 
-    // Generate 
-    int num_of_customers = distr(gen);
+    std::cout << s.customer_arrivals.front().archetype->tip_lines[0] << std::endl; 
 
-    std::cout << num_of_customers << " customer(s) has arrived!" << std::endl;
-
-    for (int i = 1; i <= num_of_customers; i++){
-
-        std::cout << "Now serving customer #" << i << std::endl;
-        std::cout << "SOLD!" << std::endl;
-
-        stock--;
-        money += 2.75;
-    }
+    s.customer_arrivals.pop_front();
+    
+    return;
 }
+
 
 void displayInfo(const GameState& game_block){
                 std::cout << "~~~~~~~~~~~~~~~~~~~~~" << std::endl;
@@ -72,7 +73,7 @@ void applyAction(GameState& s, Action a){
         makeLemonade(s.inventory.lemons, s.inventory.sugar, s.inventory.stock);
     }
     else if (a == Action::Sell){
-        generateCustomers(s.inventory.stock, s.money);
+        sellLemonade(s);
     }
 }
 

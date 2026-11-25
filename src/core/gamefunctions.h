@@ -13,7 +13,7 @@ void startInfo();
 
 bool makeLemonade(int& total_lemons, int& total_sugar, int& stock);
 
-void generateCustomers(int& stock, double& money);
+void sellLemonade(GameState& s);
 
 void displayInfo(const GameState& game_block);
 
