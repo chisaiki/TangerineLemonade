@@ -36,7 +36,7 @@ void sellLemonade(GameState& s){
     }
 
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-    std::cout << "Sold to " << s.customer_arrivals.back().archetype->name << "!"<< std::endl;
+    std::cout << "Sold to " << s.customer_arrivals.front().archetype->name << "!"<< std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
     // so adding price up at a constant rate is not including the tip amount

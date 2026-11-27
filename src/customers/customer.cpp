@@ -35,7 +35,6 @@ Customer makeCustomer(GameState& s){
     std::cout << type.greetings[0] << std::endl;
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 
-
     return c;
 }
 
